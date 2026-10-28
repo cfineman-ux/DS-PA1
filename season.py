@@ -103,9 +103,10 @@ class GameLog:
         # TODO 5a: delete the raise line below and write your code here.
         if self._head:
             currNode = self._head
-            while currNode is not None:
+            while currNode.nxt is not None:
                 currNode = currNode.nxt
             currNode.next = _Node(game)
+            self._tail = _Node(game)
         else:
             currNode = _Node(game)
             self._head = currNode
@@ -122,8 +123,14 @@ class GameLog:
                 current = current.nxt       <- forget this line and it never ends
         """
         # TODO 5b: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 5b: write GameLog.games")
+        gameList = []
+        currNode = self._head
+        while currNode is not None:
+            gameList.append(currNode)
+            currNode = currNode.nxt
+        return gameList
 
+            
     # ================================================================ TODO 6
     def last_game(self):
         """TODO 6: the most recent game, in O(1): the tail points right at it.

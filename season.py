@@ -176,7 +176,7 @@ class Season:
                 loss_count +=1
             else:
                 tie_count +=1
-        return f"({win_count}, {loss_count}, {tie_count})"
+        return (win_count, loss_count, tie_count)
 
 
     def longest_win_streak(self):
@@ -189,8 +189,16 @@ class Season:
             W T W W T         ->  2
             L L L             ->  0
         """
-        # TODO 7b: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 7b: write Season.longest_win_streak")
+        curr_streak = 0
+        best_streak = 0
+        for game in self.log.games():
+            if game.result() == "W":
+                curr_streak +=1
+            else:
+                curr_streak = 0
+            if curr_streak > best_streak:
+                best_streak = curr_streak
+        return best_streak
 
     # ================================================================ TODO 8
     def form(self, n=5):

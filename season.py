@@ -211,9 +211,9 @@ class Season:
         # TODO 8a: delete the raise line below and write your code here.
         gamesList = []
         for game in self.log.games():
-            gamesList.append(game)
+            gamesList.append(game.result())
         
-        wanted_games = gamesList[0:n]
+        wanted_games = gamesList[-n:]
         return " ".join(wanted_games)
         
     def biggest_win(self):
@@ -223,4 +223,20 @@ class Season:
         No wins at all? Return None. (Every season can't be a good one.)
         """
         # TODO 8b: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 8b: write Season.biggest_win")
+        
+        curr_margin = 0
+        best_margin = 0
+        best_game = None
+
+        for game in self.log.games():
+            if game.result() == "W":
+                curr_margin = game.margin()
+            if curr_margin > best_margin:
+                best_margin = curr_margin
+                best_game = game
+        return best_game
+            
+
+       
+
+    

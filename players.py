@@ -80,7 +80,7 @@ class Player:
     # That one method unlocks all of TODO 3: max() finds your best scorer, and
     # sorted() lines everyone up. (Module 3, Part 5.)
     def __lt__(self, other):
-        return (self.per_game) < (other.per_game)
+        return self.per_game() < other.per_game()
 
 
 # ==================================================================== TODO 2

@@ -134,6 +134,7 @@ class Roster:
             return self._players[name.strip().lower()]
         else:
             raise PlayerNotFoundError(f"no player named {name}")
+        
     # ================================================================ TODO 3
     def leaderboard(self, top=5):
         """TODO 3a: the top scorers, best first, as a list.
@@ -143,9 +144,21 @@ class Roster:
         Asking for more players than you have? A slice just gives you all.
         """
         # TODO 3a: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 3a: write Roster.leaderboard")
-
+        players_list = []
+        # add each player to a list
+        for key in self._players:
+            players_list.append(self._players[key])
+        # sort the list
+        sorted_list = sorted(players_list, reverse=True)
+        # slice to find top
+        try:
+            final_top = sorted_list[0:top]
+        except IndexError:
+            final_top = sorted_list[0:]
+        finally:
+            return final_top
+        
     def mvp(self):
         """TODO 3b: your team's best scorer. One line: max() uses your __lt__ too."""
         # TODO 3b: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 3b: write Roster.mvp")
+        return max(self.players())

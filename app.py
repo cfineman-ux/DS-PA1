@@ -23,10 +23,10 @@ from season import GameLog, NoGamesYetError, Season
 # Make it yours. Put your team's real numbers in data/my_players.csv and
 # data/my_games.csv (README: "Find your team's numbers"), then change these.
 
-TEAM_NAME = "Midtown Meteors"
+TEAM_NAME = "Philadelphia Eagles"
 STAT_NAME = "points"                       # or "goals", "runs", "touchdowns"
-PLAYERS_FILE = "data/sample_players.csv"
-GAMES_FILE = "data/sample_games.csv"
+PLAYERS_FILE = "data/my_players.csv"
+GAMES_FILE = "data/my_games.csv"
 
 
 # ============================================================================

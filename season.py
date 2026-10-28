@@ -36,7 +36,12 @@ class Game:
     def result(self):
         """TODO 4: "W" if your team won, "L" if it lost, "T" for a tie."""
         # TODO 4: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 4: write Game.result")
+        if self.our_score > self.their_score:
+            return "W"
+        elif self.our_score < self.their_score:
+            return "L"
+        else:
+            return "T"
 
     def margin(self):
         """How much your team won by: negative when it lost. Written for you."""

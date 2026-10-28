@@ -91,7 +91,8 @@ class Player:
 #
 #     class EmptyListError(IndexError):
 #         """Raised when you remove from an empty list."""
-
+class PlayerNotFoundError(KeyError):
+    """Raised when player is not found in dictionary."""
 
 class Roster:
     """Every player on your team, found by name in O(1).
@@ -117,7 +118,7 @@ class Roster:
     def add(self, player):
         """TODO 2a: put player on the roster, under the key player.name.lower()."""
         # TODO 2a: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 2a: write Roster.add")
+        self._players[player.name.lower()] = player
 
     def find(self, name):
         """TODO 2b: return the Player with this name.
@@ -129,8 +130,10 @@ class Roster:
             PlayerNotFoundError: no player named Zed
         """
         # TODO 2b: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 2b: write Roster.find")
-
+        if name.strip().lower() in self._players:
+            return self._players[name.strip().lower()]
+        else:
+            raise PlayerNotFoundError(f"no player named {name}")
     # ================================================================ TODO 3
     def leaderboard(self, top=5):
         """TODO 3a: the top scorers, best first, as a list.

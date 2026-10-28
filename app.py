@@ -142,12 +142,12 @@ def add_game_screen(season, line):
     """
     # TODO 9b: delete the raise line below and write your code here.
     try:
-        parse_game(line)
-    except ValueError:
-        return f"Couldn't add that game: {season.game}"
+        game = parse_game(line)
+    except ValueError as error:
+        return f"Couldn't add that game: {error}"
     else:
-        season.log.append(season.game)
-        return f"Added: {season.game}"
+        season.log.add_game(game)
+        return f"Added: {game}"
 
 MENU = """
   1  Season at a glance       4  Biggest win

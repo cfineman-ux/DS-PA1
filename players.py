@@ -36,7 +36,19 @@ class Player:
             ValueError: points can't be negative, got -5
         """
         # TODO 1a: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 1a: write Player.__init__")
+       
+
+        if games < 0:
+            raise ValueError(f"Games can't be negative. Got: {games} games")
+        elif points < 0:
+            raise ValueError(f"Points can't be negative. Got: {points} points")
+        else:
+        
+            self.name = name
+            self.number = number
+            self.position = position
+            self.games = games
+            self.points = points
 
     def per_game(self):
         """TODO 1b: points per game, like 17.8.
@@ -45,7 +57,13 @@ class Player:
         whole leaderboard.
         """
         # TODO 1b: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 1b: write Player.per_game")
+        try:
+            pointsPG = self.points/self.games
+        except ZeroDivisionError:
+            return 0.0
+        else:
+            return pointsPG
+
 
     def __repr__(self):
         # Written for you: how a Player prints.
@@ -61,6 +79,8 @@ class Player:
     # A player is "less than" another when they score FEWER points per game.
     # That one method unlocks all of TODO 3: max() finds your best scorer, and
     # sorted() lines everyone up. (Module 3, Part 5.)
+    def __lt__(self, other):
+        return (self.per_game) < (other.per_game)
 
 
 # ==================================================================== TODO 2

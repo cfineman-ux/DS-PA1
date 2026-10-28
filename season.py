@@ -101,7 +101,15 @@ class GameLog:
         Either way, _size goes up by one.
         """
         # TODO 5a: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 5a: write GameLog.add_game")
+        if self._head:
+            currNode = self._head
+            while currNode is not None:
+                currNode = currNode.nxt
+            currNode.next = _Node(game)
+        else:
+            currNode = _Node(game)
+            self._head = currNode
+            self._tail = currNode
 
     def games(self):
         """TODO 5b: every game, oldest first, as a Python list. O(n).

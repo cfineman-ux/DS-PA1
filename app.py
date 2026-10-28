@@ -119,8 +119,13 @@ def player_card_screen(season, name):
     same way.
     """
     # TODO 9a: delete the raise line below and write your code here.
-    raise NotImplementedError("TODO 9a: write player_card_screen")
-
+    try:
+        card = season.roster.find(name)
+    except PlayerNotFoundError:
+        return f"No {name.strip()} on the {season.team_name}. Check the spelling?"
+    else:
+        return card
+ 
 
 def add_game_screen(season, line):
     """TODO 9b: add one game, typed as one line, and return the text to show.

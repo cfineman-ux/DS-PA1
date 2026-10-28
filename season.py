@@ -209,8 +209,13 @@ class Season:
         Fewer than n games? You get them all. No games at all? ""
         """
         # TODO 8a: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 8a: write Season.form")
-
+        gamesList = []
+        for game in self.log.games():
+            gamesList.append(game)
+        
+        wanted_games = gamesList[0:n]
+        return " ".join(wanted_games)
+        
     def biggest_win(self):
         """TODO 8b: the season's blowout: the WIN with the biggest margin.
 

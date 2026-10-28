@@ -165,7 +165,19 @@ class Season:
         A season with no games is (0, 0, 0).
         """
         # TODO 7a: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 7a: write Season.record")
+    
+        win_count = 0
+        loss_count = 0
+        tie_count = 0
+        for game in self.log.games():
+            if game.result() == "W":
+                win_count +=1
+            elif game.result() == "L":
+                loss_count +=1
+            else:
+                tie_count +=1
+        return f"({win_count}, {loss_count}, {tie_count})"
+
 
     def longest_win_streak(self):
         """TODO 7b: the most wins in a row, in one pass. O(n).

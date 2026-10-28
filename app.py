@@ -120,11 +120,11 @@ def player_card_screen(season, name):
     """
     # TODO 9a: delete the raise line below and write your code here.
     try:
-        card = season.roster.find(name)
+        player = season.roster.find(name)
     except PlayerNotFoundError:
         return f"No {name.strip()} on the {season.team_name}. Check the spelling?"
     else:
-        return card
+        return player_card(player)
  
 
 def add_game_screen(season, line):
@@ -141,8 +141,13 @@ def add_game_screen(season, line):
     "Added: " plus the game.
     """
     # TODO 9b: delete the raise line below and write your code here.
-    raise NotImplementedError("TODO 9b: write add_game_screen")
-
+    try:
+        parse_game(line)
+    except ValueError:
+        return f"Couldn't add that game: {season.game}"
+    else:
+        season.log.append(season.game)
+        return f"Added: {season.game}"
 
 MENU = """
   1  Season at a glance       4  Biggest win

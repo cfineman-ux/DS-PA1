@@ -62,11 +62,14 @@ class _Node:
         self.nxt = nxt
 
 
+
 # ==================================================================== TODO 6
 #
 # Write NoGamesYetError right here: a class line and a docstring. Its parent
 # is IndexError: asking for the last game of a season with no games is like
 # popping from an empty list.
+class NoGamesYetError(IndexError):
+    """raised when trying to access a game and there are none"""
 
 
 class GameLog:
@@ -130,7 +133,7 @@ class GameLog:
                 current = current.nxt
         return gameList
 
-            
+
     # ================================================================ TODO 6
     def last_game(self):
         """TODO 6: the most recent game, in O(1): the tail points right at it.
@@ -138,8 +141,10 @@ class GameLog:
         No games yet? Raise NoGamesYetError("no games played yet").
         """
         # TODO 6: delete the raise line below and write your code here.
-        raise NotImplementedError("TODO 6: write GameLog.last_game")
-
+        if self._tail:
+            return self._tail.val
+        else:
+            raise NoGamesYetError("no games played yet")
 
 class Season:
     """Your team's season: its name, its roster, and its game log.

@@ -101,16 +101,14 @@ class GameLog:
         Either way, _size goes up by one.
         """
         # TODO 5a: delete the raise line below and write your code here.
-        if self._head:
-            currNode = self._head
-            while currNode.nxt is not None:
-                currNode = currNode.nxt
-            currNode.next = _Node(game)
-            self._tail = _Node(game)
+        node = _Node(game)
+        if self._tail is None:
+            self._head = node
+            self._tail = node
         else:
-            currNode = _Node(game)
-            self._head = currNode
-            self._tail = currNode
+            self._tail.nxt = node
+        self._tail = node
+        self._size +=1
 
     def games(self):
         """TODO 5b: every game, oldest first, as a Python list. O(n).
@@ -124,10 +122,12 @@ class GameLog:
         """
         # TODO 5b: delete the raise line below and write your code here.
         gameList = []
-        currNode = self._head
-        while currNode is not None:
-            gameList.append(currNode)
-            currNode = currNode.nxt
+
+        if self._head:
+            current = self._head
+            while current is not None:
+                gameList.append(current.val)
+                current = current.nxt
         return gameList
 
             

@@ -17,7 +17,6 @@ import sys
 from loader import load, parse_game, parse_player
 from players import PlayerNotFoundError, Roster
 from season import GameLog, NoGamesYetError, Season
-import webbrowser
 
 
 # =================================================================== TODO 10
@@ -161,6 +160,17 @@ def show(text):
     for line in text.splitlines():
         print("  " + line)
 
+# I asked AI to make "GO BIRDS" out of keyboard symbols
+
+Go_birds = r"""
+                .--------------------------------------------------.
+                |  ____  ___     ____  ___ ____  ____   ____   ____|
+                | / ___// _ \   | __ )|_ _|  _ \|  _ \ / ___| / ___|
+                || |  _| | | |  |  _ \ | || |_) | | | |\___ \ \___ \
+                || |_| | |_| |  | |_) || ||  _ <| |_| | ___) |___) |
+                | \____|\___/   |____/|___|_| \_\____/ |____/|____/|
+                '--------------------------------------------------'
+                """
 
 def main():
     try:
@@ -173,8 +183,9 @@ def main():
         print(MENU)
         choice = input("  Choose: ").strip()
         if choice == "0":
-            print(f"\n  Fly Eagles Fly! Let's go, {TEAM_NAME}!\n")
-            webbrowser.open("eagles.png")
+            print(f"\n  Fly Eagles Fly! Let's go, {TEAM_NAME}!")
+           
+            print(Go_birds)
             return
         elif choice == "1":
             glance_screen(season)

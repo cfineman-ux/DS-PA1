@@ -8,13 +8,13 @@ Write in your own words, wherever it says *your answer*.
 
 | Operation | Big-O | Why |
 |---|---|---|
-| `Roster.find` | *your answer* | *your answer* |
-| Finding a player in a plain list, one at a time | *your answer* | *your answer* |
-| `GameLog.add_game` | *your answer* | *your answer* |
-| `GameLog.games` | *your answer* | *your answer* |
-| `GameLog.last_game` | *your answer* | *your answer* |
-| `Season.record` | *your answer* | *your answer* |
-| `Roster.leaderboard` | *your answer* | *your answer* |
+| `Roster.find` | O(1) | dictionary key lookup is instant |
+| Finding a player in a plain list, one at a time | O(n) | requiures iterating through a list until match is located |
+| `GameLog.add_game` | O(1) | adding tail without traversing list |
+| `GameLog.games` | O(n) | walking the chain |
+| `GameLog.last_game` | O(1) | checking if tail exists |
+| `Season.record` | O(n) | walking the chain |
+| `Roster.leaderboard` | O(n log n) | sorting and slicing |
 
 ## 2. The Big-O race
 

@@ -17,6 +17,7 @@ import sys
 from loader import load, parse_game, parse_player
 from players import PlayerNotFoundError, Roster
 from season import GameLog, NoGamesYetError, Season
+import webbrowser
 
 
 # =================================================================== TODO 10
@@ -172,7 +173,8 @@ def main():
         print(MENU)
         choice = input("  Choose: ").strip()
         if choice == "0":
-            print(f"\n  Let's go, {TEAM_NAME}!\n")
+            print(f"\n  Fly Eagles Fly! Let's go, {TEAM_NAME}!\n")
+            webbrowser.open("eagles.png")
             return
         elif choice == "1":
             glance_screen(season)

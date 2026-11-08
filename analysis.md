@@ -21,16 +21,25 @@ Write in your own words, wherever it says *your answer*.
 Run `python3 race.py`, and paste your table here:
 
 ```
-paste your table here
+  players    plain list      x    Roster.find      x
+     2,000       33.0 us  start        0.14 us  start
+     4,000       70.9 us   2.2x        0.14 us   1.0x
+     8,000      148.5 us   2.1x        0.13 us   1.0x
+    16,000      271.5 us   1.8x        0.13 us   1.0x
 ```
 
 **a)** Which column roughly doubles every round, and why?
 
-*your answer*
+The plain list, because it searching through a list to find a 
+player which is an O(n) operation. So, since the search is linear,
+as the number of player doubles, the length of time of the search
+does as well.
 
 **b)** Why does the other column barely change?
 
-*your answer*
+Roster.find barely changes because it is just looking up players
+in a dictionary which is O(1), so it is not affected by 
+the number of players increasing.
 
 ## 3. Your team
 

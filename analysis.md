@@ -46,3 +46,8 @@ the number of players increasing.
 Which team, which season, and which websites did your numbers come from? Give the links.
 
 *your answer*
+Eagles, 2017 season
+I used a few:
+https://www.statmuse.com/nfl/team/philadelphia-eagles-49/stats/2017
+https://www.pro-football-reference.com/teams/phi/2017.htm
+https://www.espn.com/nfl/team/stats/_/name/phi/season/2017
